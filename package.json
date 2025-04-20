@@ -1,49 +1,25 @@
 {
-  "name": "mcp-communicator-telegram",
-  "version": "0.2.1",
-  "description": "MCP server for communicating with users through Telegram bots",
-  "main": "build/index.js",
-  "type": "commonjs",
+  "name": "@modelcontextprotocol/server-brave-search",
+  "version": "0.6.2",
+  "description": "MCP server for Brave Search API integration",
+  "license": "MIT",
+  "author": "Anthropic, PBC (https://anthropic.com)",
+  "homepage": "https://modelcontextprotocol.io",
+  "bugs": "https://github.com/modelcontextprotocol/servers/issues",
+  "type": "module",
   "bin": {
-    "mcptelegram": "build/index.js",
-    "mcptelegram-chatid": "build/get-chat-id.js"
+    "mcp-server-brave-search": "dist/index.js"
   },
   "files": [
-    "build",
-    "README.md",
-    "LICENSE",
-    ".env.example"
+    "dist"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/qpd-v/mcp-communicator-telegram.git"
-  },
-  "bugs": {
-    "url": "https://github.com/qpd-v/mcp-communicator-telegram/issues"
-  },
-  "homepage": "https://github.com/qpd-v/mcp-communicator-telegram#readme",
   "scripts": {
-    "build": "tsc",
-    "start": "node build/index.js",
-    "dev": "tsc && node build/index.js",
-    "watch": "tsc -w",
-    "clean": "rimraf build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc && shx chmod +x dist/*.js",
+    "prepare": "npm run build",
+    "watch": "tsc --watch"
   },
-  "keywords": [
-    "mcp",
-    "model-context-protocol",
-    "telegram",
-    "bot",
-    "communication",
-    "chat",
-    "messaging",
-    "ai",
-    "claude"
-  ],
-  "author": "qpd-v",
-  "license": "ISC",
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.10.1",
     "archiver": "^7.0.1",
     "dotenv": "^16.3.1",
     "ignore": "^7.0.3",
@@ -51,9 +27,9 @@
   },
   "devDependencies": {
     "@types/archiver": "^6.0.3",
-    "@types/node": "^20.10.5",
-    "@types/node-telegram-bot-api": "^0.64.1",
-    "rimraf": "^5.0.5",
-    "typescript": "^5.3.3"
+    "@types/node": "^22",
+    "@types/node-telegram-bot-api": "^0.64.8",
+    "shx": "^0.3.4",
+    "typescript": "^5.6.2"
   }
 }
